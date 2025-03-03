@@ -23,7 +23,7 @@ function Login() {
         { withCredentials: true }
       );
       dispatch(addUser(res.data));
-      return navigate("/feed");
+      return navigate("/");
     } catch (error) {
       setError(error.message);
       console.log(error);

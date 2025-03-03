@@ -22,10 +22,11 @@ function Feed() {
   useEffect(() => {
     getFeed();
   }, []);
+  if (!feed) return;
 
   return (
     <div className="flex justify-center">
-      <UserCard />
+      <UserCard user={feed[0]} />
     </div>
   );
 }
