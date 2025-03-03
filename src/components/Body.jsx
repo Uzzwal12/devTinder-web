@@ -13,6 +13,7 @@ function Body() {
 
   const fetchUser = async () => {
     try {
+      if (userData) return;
       const res = await axios.get(`${BASE_URL}/profile/view`, {
         withCredentials: true,
       });
@@ -26,7 +27,7 @@ function Body() {
   };
 
   useEffect(() => {
-    if (!userData) fetchUser();
+    fetchUser();
   }, []);
   return (
     <div>
