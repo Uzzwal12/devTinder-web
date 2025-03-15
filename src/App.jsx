@@ -12,6 +12,7 @@ import ContactUs from "./components/ContactUs";
 import Refund from "./components/Refund";
 import Terms from "./components/Terms";
 import AboutUs from "./components/AboutUs";
+import Premium from "./components/Premium";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               <Route path="/refund" element={<Refund />} />
               <Route path="/terms-of-service" element={<Terms />} />
               <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/premium" element={<Premium />} />
             </Route>
           </Routes>
         </BrowserRouter>
