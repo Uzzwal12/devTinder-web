@@ -7,6 +7,11 @@ import store from "./redux/store";
 import Feed from "./components/Feed";
 import Connections from "./components/Connections";
 import Requests from "./components/Requests";
+import Policy from "./components/Policy";
+import ContactUs from "./components/ContactUs";
+import Refund from "./components/Refund";
+import Terms from "./components/Terms";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   return (
@@ -20,6 +25,11 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/connections" element={<Connections />} />
               <Route path="/requests" element={<Requests />} />
+              <Route path="/privacy-policy" element={<Policy />} />
+              <Route path="/contact-us" element={<ContactUs />} />
+              <Route path="/refund" element={<Refund />} />
+              <Route path="/terms-of-service" element={<Terms />} />
+              <Route path="/about-us" element={<AboutUs />} />
             </Route>
           </Routes>
         </BrowserRouter>
