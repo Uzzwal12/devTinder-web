@@ -3,6 +3,20 @@ import { BASE_URL } from "../utils/constants";
 import axios from "axios";
 
 function Premium() {
+  const [isUserPremium, setIsUserPremium] = useState(false);
+  useEffect(() => {
+    verifyPremiumUser();
+  }, []);
+
+  const verifyPremiumUser = async () => {
+    const res = await axios.get(BASE_URL + "/premium/verify", {
+      withCredentials: true,
+    });
+
+    if (res.data.isPremium) {
+      setIsUserPremium(true);
+    }
+  };
   const handleBuyClick = async (type) => {
     const order = await axios.post(
       BASE_URL + "/payment/create",
@@ -12,7 +26,7 @@ function Premium() {
       { withCredentials: true }
     );
     console.log(order);
-    const { amount, keyId, currency, notes, orderId } = order;
+    const { amount, keyId, currency, notes, orderId } = order.data;
 
     const options = {
       key: keyId,
@@ -29,7 +43,6 @@ function Premium() {
       theme: {
         color: "#F37254",
       },
-      handler: verifyPremiumUser,
     };
 
     const rzp = new window.Razorpay(options);
