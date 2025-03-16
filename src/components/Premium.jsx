@@ -43,12 +43,15 @@ function Premium() {
       theme: {
         color: "#F37254",
       },
+      handler: verifyPremiumUser,
     };
 
     const rzp = new window.Razorpay(options);
     rzp.open();
   };
-  return (
+  return isUserPremium ? (
+    "You're are already a premium user"
+  ) : (
     <div className="m-10">
       <div className="flex w-full">
         <div className="card bg-base-300 rounded-box grid h-80 flex-grow place-items-center">
@@ -60,7 +63,7 @@ function Premium() {
             <li> - 3 months</li>
           </ul>
           <button
-            onClick={() => handleBuyClick("silver")}
+            onClick={() => handleBuyClick("gold")}
             className="btn btn-secondary"
           >
             Buy Silver
@@ -71,7 +74,7 @@ function Premium() {
           <h1 className="font-bold text-3xl">Gold Membership</h1>
           <ul>
             <li> - Chat with other people</li>
-            <li> - Unlimited connection Requests per day</li>
+            <li> - Inifiniye connection Requests per day</li>
             <li> - Blue Tick</li>
             <li> - 6 months</li>
           </ul>
